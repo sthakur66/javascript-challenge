@@ -59,22 +59,37 @@
 		var shapeElement = d3.select("#shape");
 		var shapeValue = shapeElement.property("value");
 		
-		var filteredData;
+		var filteredData = tableData;
 
 		// Use conditional statement to avoid filteredData getting overriden with null values
 		if (dateValue !== "") {
 			filteredData = tableData.filter(data => data.datetime === dateValue);
-		} else if (cityValue !== "") {
-			filteredData = tableData.filter(data => data.city === cityValue);
-		} else if (stateValue !== "") {
-			filteredData = tableData.filter(data => data.state === stateValue);
-		} else if (countryValue !== "") {
-			filteredData = tableData.filter(data => data.country === countryValue);
-		} else if (shapeValue !== "") {
-			filteredData = tableData.filter(data => data.shape === shapeValue);
-		} else {
+		};
+		
+		
+		if (cityValue !== "") {
+			filteredData = filteredData.filter(data => data.city === cityValue);
+		};
+		
+		
+		if (stateValue !== "") {
+			filteredData = filteredData.filter(data => data.state === stateValue);
+		};
+		
+
+		if (countryValue !== "") {
+			filteredData = filteredData.filter(data => data.country === countryValue);
+		};
+		
+
+		if (shapeValue !== "") {
+			filteredData = filteredData.filter(data => data.shape === shapeValue);
+		};
+		
+
+		if (dateValue === "" && cityValue === "" && stateValue === "" && countryValue === "" && shapeValue === "") {
 			filteredData = tableData;
-		}
+		};
 
 
 		// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
