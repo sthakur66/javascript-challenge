@@ -62,6 +62,8 @@
 		var filteredData = tableData;
 
 		// Use conditional statement to avoid filteredData getting overriden with null values
+		// It will also handle multiple filters at once
+		// It should also enable filtering on top of already filtered data
 		if (dateValue !== "") {
 			filteredData = tableData.filter(data => data.datetime === dateValue);
 		};
