@@ -43,7 +43,14 @@
 	  console.log(tableData);
 	  
 	  // Get the row based on input by using filter function from JS
-	  var filteredData = tableData.filter(data => data.datetime === inputValue);
+	  var filteredData;
+
+	  // Use conditional statement to avoid filteredData getting overriden with null values
+		if (inputValue !== "") {
+			filteredData = tableData.filter(data => data.datetime === inputValue);
+		} else {
+			filteredData = tableData;
+		}
 	
 	  // Print the value to the console
 	  console.log(filteredData);
